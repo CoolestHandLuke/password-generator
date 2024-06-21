@@ -5,18 +5,17 @@ import PasswordStrength from './components/PasswordStrength';
 
 function App() {
     return (
-        <div className="m-auto px-5content-center md:max-w-xl sm:max-w-lg ">
-            {/* title of the App */}
-            <h1 className="text-center">Password Generator</h1>
+        <div className="bg-onyx min-h-screen min-w-screen">
+            <div className="m-auto px-5content-center md:max-w-xl sm:max-w-lg ">
+                <h1 className="text-center font-JetBrains font-bold text-2xl leading-8">
+                    Password Generator
+                </h1>
 
-            {/* Generated password */}
-            <GeneratedPassword />
-            {/* Parameter selection */}
-            <ParameterSelection />
-            {/* Strength (conditional) */}
-            <PasswordStrength />
-            {/* Generate Button */}
-            <GenerateButton />
+                <GeneratedPassword />
+                <ParameterSelection />
+                <PasswordStrength />
+                <GenerateButton />
+            </div>
         </div>
     );
 }

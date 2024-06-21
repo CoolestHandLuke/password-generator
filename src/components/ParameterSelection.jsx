@@ -8,16 +8,20 @@ const ParameterSelection = () => {
         setPasswordLength(e.target.value);
     };
     return (
-        <div>
-            <div className="flex justify-between my-4">
-                <div>Character Length</div>
-                <div>{passwordLength}</div>
+        <div className="bg-dark-grey">
+            <div className="flex justify-between  my-4">
+                <div className="font-JetBrains text-2xl leading-8">
+                    Character Length
+                </div>
+                <div className="font-JetBrains text-2xl leading-8">
+                    {passwordLength}
+                </div>
             </div>
             <input
                 type="range"
                 min={0}
                 max="15"
-                className="range range-sm range-primary"
+                className="w-full cursor-pointer accent-neon-green "
                 onChange={(e) => handleSliderChange(e)}
             />
             <div className="form-control">
@@ -25,9 +29,9 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
-                        className="checkbox checkbox-primary"
+                        className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
-                    <span className="label-text ml-8">
+                    <span className="label-text font-JetBrains text-lg leading-6 ml-8">
                         Include Uppercase Letters
                     </span>
                 </label>
@@ -35,9 +39,9 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
-                        className="checkbox checkbox-primary"
+                        className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
-                    <span className="label-text ml-8">
+                    <span className="label-text font-JetBrains text-lg leading-6 ml-8">
                         Include Lowercase Letters
                     </span>
                 </label>
@@ -45,17 +49,21 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
-                        className="checkbox checkbox-primary"
+                        className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
-                    <span className="label-text ml-8">Include Numbers</span>
+                    <span className="label-text font-JetBrains text-lg leading-6 ml-8">
+                        Include Numbers
+                    </span>
                 </label>
                 <label className="label cursor-pointer justify-start">
                     <input
                         type="checkbox"
                         defaultChecked
-                        className="checkbox checkbox-primary"
+                        className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
-                    <span className="label-text ml-8">Include Symbols</span>
+                    <span className="label-text font-JetBrains text-lg leading-6 ml-8">
+                        Include Symbols
+                    </span>
                 </label>
             </div>
         </div>
