@@ -1,14 +1,43 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import ParametersContext from '../context/ParametersProvider';
 
 const ParameterSelection = () => {
-    const [passwordLength, setPasswordLength] = useState(10);
+    const {
+        passwordLength,
+        setPasswordLength,
+        includeUppercase,
+        setIncludeUppercase,
+        includeLowercase,
+        setIncludeLowercase,
+        includeNumbers,
+        setIncludeNumbers,
+        includeSymbols,
+        setIncludeSymbols,
+    } = useContext(ParametersContext);
 
     const handleSliderChange = (e) => {
         e.preventDefault();
         setPasswordLength(e.target.value);
     };
+
+    const handleSelection = (e) => {
+        switch (e.target.name) {
+            case 'uppercase':
+                setIncludeUppercase(!includeUppercase);
+                break;
+            case 'lowercase':
+                setIncludeLowercase(!includeLowercase);
+                break;
+            case 'numbers':
+                setIncludeNumbers(!includeNumbers);
+                break;
+            case 'symbols':
+                setIncludeSymbols(!includeSymbols);
+                break;
+        }
+    };
     return (
-        <div className="bg-dark-grey">
+        <div className="bg-dark-grey p-8">
             <div className="flex justify-between  my-4">
                 <div className="font-JetBrains text-2xl leading-8">
                     Character Length
@@ -29,6 +58,8 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
+                        name="uppercase"
+                        onChange={handleSelection}
                         className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
                     <span className="label-text font-JetBrains text-lg leading-6 ml-8">
@@ -39,6 +70,8 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
+                        name="lowercase"
+                        onChange={handleSelection}
                         className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
                     <span className="label-text font-JetBrains text-lg leading-6 ml-8">
@@ -49,6 +82,8 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
+                        name="numbers"
+                        onChange={handleSelection}
                         className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
                     <span className="label-text font-JetBrains text-lg leading-6 ml-8">
@@ -59,6 +94,8 @@ const ParameterSelection = () => {
                     <input
                         type="checkbox"
                         defaultChecked
+                        name="symbols"
+                        onChange={handleSelection}
                         className="checkbox checked:border-neon-green [--chkbg:theme(colors.neon-green)] [--chkfg:theme(colors.onyx)]"
                     />
                     <span className="label-text font-JetBrains text-lg leading-6 ml-8">
